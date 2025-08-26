@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Tutor Design System - Modern & Professional */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* AI-focused color palette */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Deep tech blue primary */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 221 83% 65%;
+
+    /* Electric purple secondary */
+    --secondary: 271 81% 56%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted grays */
+    --muted: 240 5% 11%;
+    --muted-foreground: 240 5% 65%;
+
+    /* Accent cyan */
+    --accent: 180 98% 60%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* AI-specific design tokens */
+    --neural-blue: 221 83% 53%;
+    --neural-purple: 271 81% 56%;
+    --neural-cyan: 180 98% 60%;
+    --neural-pink: 320 85% 60%;
+    --neural-green: 142 76% 36%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--neural-purple)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--neural-cyan)), hsl(var(--neural-pink)));
+    --gradient-neural: linear-gradient(135deg, hsl(var(--neural-blue)), hsl(var(--neural-purple)), hsl(var(--neural-cyan)));
+    --gradient-glow: radial-gradient(circle at center, hsl(var(--neural-blue) / 0.3), transparent 70%);
+
+    /* Shadows & Effects */
+    --shadow-glow: 0 0 50px hsl(var(--neural-blue) / 0.3);
+    --shadow-neural: 0 25px 50px -12px hsl(var(--neural-blue) / 0.4);
+    --shadow-accent: 0 10px 30px hsl(var(--neural-cyan) / 0.2);
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Floating animations for 3D effects */
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .float-medium {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .float-fast {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-reverse {
+    animation: float 5s ease-in-out infinite reverse;
+  }
+
+  /* Pulse glow effect */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Neural network lines */
+  .neural-line {
+    @apply absolute;
+    background: linear-gradient(90deg, transparent, hsl(var(--neural-cyan) / 0.8), transparent);
+    animation: neural-flow 3s ease-in-out infinite;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-accent-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* 3D transform effects */
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+
+  .rotate-3d {
+    animation: rotate-3d 20s linear infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 20px hsl(var(--neural-blue) / 0.4); }
+    100% { box-shadow: 0 0 40px hsl(var(--neural-blue) / 0.8), 0 0 60px hsl(var(--neural-purple) / 0.6); }
+  }
+
+  @keyframes neural-flow {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100vw); opacity: 0; }
+  }
+
+  @keyframes rotate-3d {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    25% { transform: rotateX(5deg) rotateY(90deg); }
+    50% { transform: rotateX(0deg) rotateY(180deg); }
+    75% { transform: rotateX(-5deg) rotateY(270deg); }
+    100% { transform: rotateX(0deg) rotateY(360deg); }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  /* Delays for staggered animations */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

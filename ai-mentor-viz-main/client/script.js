@@ -1,3 +1,5 @@
+import { supabase } from './supabaseClient.js'; // 1. Import the Supabase client
+
 const signupForm = document.getElementById('signup-form');
 
 signupForm.addEventListener('submit', async (event) => {
@@ -9,27 +11,29 @@ signupForm.addEventListener('submit', async (event) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  // This is the fetch() call that sends the data to Aditya's server
+  // 2. Use the simple Supabase signUp function instead of fetch
   try {
-    const response = await fetch('http://localhost:3001/api/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          username: username, // This sends the username to your 'profiles' table trigger
+        },
       },
-      body: JSON.stringify({ username, email, password }),
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message);
+    // 3. Supabase handles errors for you
+    if (error) {
+      throw error; // If there's an error, throw it to the catch block
     }
 
-    console.log('Success! Data sent to server:', data);
-    alert('You have successfully registered!');
+    // 4. Handle the success case
+    console.log('Signup successful!', data);
+    alert('Success! Please check your email to verify your account.');
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error signing up:', error);
     alert(`Registration failed: ${error.message}`);
   }
 });

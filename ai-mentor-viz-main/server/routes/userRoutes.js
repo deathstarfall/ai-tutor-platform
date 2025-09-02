@@ -1,13 +1,16 @@
+// 1. Import Express and the router function
 import express from 'express';
 const router = express.Router();
 
-// 1. Import both functions from the controller
+// 2. Import the controller functions that contain the logic
 import { registerUser, loginUser } from '../controllers/userController.js';
 
-// 2. Define the route for registration
+// 3. Define the API routes
+// When a POST request is sent to '/register', run the registerUser function
 router.post('/register', registerUser);
 
-// 3. Define the route for login
+// When a POST request is sent to '/login', run the loginUser function
 router.post('/login', loginUser);
 
+// 4. Export the router so your main index.js file can use it
 export default router;

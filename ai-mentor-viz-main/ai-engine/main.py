@@ -7,12 +7,14 @@ load_dotenv()
 # Configure the Gemini client with your API key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Create an instance of the Gemini Pro model
-model = genai.GenerativeModel('gemini-pro')
+# --- ADD THE FOLLOWING CODE ---
 
 try:
-  # This is your prompt
-  prompt = "What is the capital of India?"
+  # 1. This is your prompt. You define the AI's role and your question.
+  messages = [
+    { "role": "system", "content": "You are a helpful assistant." },
+    { "role": "user", "content": "What is the capital of Oman?" }
+  ]
 
   # This makes the API call to Gemini
   response = model.generate_content(prompt)

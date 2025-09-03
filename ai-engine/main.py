@@ -6,7 +6,7 @@ load_dotenv() # This loads the variables from your .env file
 
 client = OpenAI(
   # The library automatically looks for the OPENAI_API_KEY in your environment
-  api_key=os.getenv("sk-proj-eQfHjT0Hj8js2W4NN2Id5-p_Y8QCu9Rf55D3VQIuNF96AYSMd-IQ9fBSocMq9tQdsFF9G_OlEjT3BlbkFJMmQ6m1Ye3yV9f7hlraCwLpfeLaLz_cg8uuGSlA09LgDitvenTqATltMX2P19cVKGjvzc6SMyEAsk-proj-eQfHjT0Hj8js2W4NN2Id5-p_Y8QCu9Rf55D3VQIuNF96AYSMd-IQ9fBSocMq9tQdsFF9G_OlEjT3BlbkFJMmQ6m1Ye3yV9f7hlraCwLpfeLaLz_cg8uuGSlA09LgDitvenTqATltMX2P19cVKGjvzc6SMyEA"),
+  api_key=os.getenv("OPENAI_API_KEY"),
 )
 
 # --- ADD THE FOLLOWING CODE ---
@@ -32,4 +32,3 @@ try:
 
 except Exception as e:
   print(f"An error occurred: {e}")
-  

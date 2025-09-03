@@ -8,24 +8,12 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3001;
 
-// Path to your client folder
-const clientPath = path.join(
-  "C:",
-  "Users",
-  "ADITYA",
-  "Desktop",
-  "ai-tutor-platform",
-  "ai-mentor-viz-main",
-  "client"
-);
+// 1. Define the dynamic path to the client's build folder
+const clientPath = path.join(__dirname, '..', 'client');
 
-// 1. Serve static files (CSS, JS, images) from client folder
+// 2. Serve all static files from the client folder
+// This will automatically serve index.html for the '/' route
 app.use(express.static(clientPath));
-
-// 2. Serve index.html at root
-app.get('/', (req, res) => {
-  res.sendFile(path.join(clientPath, 'index.html'));
-});
 
 // 3. Start the server
 app.listen(port, () => {

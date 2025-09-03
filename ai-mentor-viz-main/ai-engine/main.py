@@ -15,7 +15,7 @@ try:
   # 1. This is your prompt. You define the AI's role and your question.
   messages = [
     { "role": "system", "content": "You are a helpful assistant." },
-    { "role": "user", "content": "What is the capital of India?" }
+    { "role": "user", "content": "What is the capital of Oman?" }
   ]
 
   # 2. This makes the actual API call to the AI model

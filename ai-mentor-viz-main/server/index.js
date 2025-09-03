@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 3001;
+const port = 5000;
 
 // 1. Define the dynamic path to the client's build folder
 const clientPath = path.join(__dirname, '..', 'client');
